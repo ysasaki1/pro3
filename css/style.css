@@ -35,8 +35,8 @@ main {
     max-width: 800px;
     margin: auto;
     background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* CSS3 supported */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* CSS3 supported */
 }
 
 section {
@@ -66,16 +66,12 @@ section {
     position: relative;
     max-width: 800px;
     margin: auto;
-    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .slider img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
-    transition: opacity 0.5s ease-in-out;
     display: none; /* Initially hide all images */
 }
 
@@ -87,19 +83,16 @@ section {
 .next {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 10px; /* Adjusted to remove transform */
+    transform: translateY(-50%); /* CSS3 supported */
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
     padding: 10px;
     cursor: pointer;
-    border-radius: 5px;
-}
-
-.prev {
-    left: 10px;
+    border-radius: 5px; /* CSS3 supported */
 }
 
 .next {
-    right: 10px;
+    right: 10px; /* Adjusted to remove transform */
 }
