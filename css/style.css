@@ -64,7 +64,7 @@ section {
 /* Slider Styles */
 .slider {
     position: relative;
-    max-width: 800px;
+    max-width: 800px; /* Maintain max-width */
     margin: auto;
     border-radius: 8px;
     overflow: hidden;
@@ -72,7 +72,8 @@ section {
 }
 
 .slider img {
-    width: 100%;
+    width: 100%; /* Adjust to fill the container */
+    height: auto; /* Maintain aspect ratio */
     border-radius: 8px;
     transition: opacity 0.5s ease-in-out;
     display: none; /* Initially hide all images */
