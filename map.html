@@ -6,8 +6,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Google Maps</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUm1APXvMS0-HYOBbv6iHrL5B2wa_R0Ko"></script>
-  <script src="js/scripts.js" defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUm1APXvMS0-HYOBbv6iHrL5B2wa_R0Ko&callback=initMap" async defer></script>
+  
+  <script>
+    // Initialize and add the map
+    function initMap() {
+      const mapOptions = {
+        center: { lat: 35.6895, lng: 139.6917 }, // Tokyo coordinates
+        zoom: 10
+      };
+      const map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+      // Adding markers
+      const marker1 = new google.maps.Marker({
+        position: { lat: 35.6895, lng: 139.6917 },
+        map: map,
+        title: "Tokyo"
+      });
+
+      const marker2 = new google.maps.Marker({
+        position: { lat: 35.6762, lng: 139.6503 },
+        map: map,
+        title: "Shinjuku"
+      });
+
+      const marker3 = new google.maps.Marker({
+        position: { lat: 35.6586, lng: 139.7454 },
+        map: map,
+        title: "Tokyo Tower"
+      });
+
+      // Adding info windows
+      const infoWindow1 = new google.maps.InfoWindow({
+        content: "Welcome to Tokyo!"
+      });
+      const infoWindow2 = new google.maps.InfoWindow({
+        content: "Welcome to Shinjuku!"
+      });
+      const infoWindow3 = new google.maps.InfoWindow({
+        content: "Welcome to Tokyo Tower!"
+      });
+
+      marker1.addListener("click", () => {
+        infoWindow1.open(map, marker1);
+      });
+      marker2.addListener("click", () => {
+        infoWindow2.open(map, marker2);
+      });
+      marker3.addListener("click", () => {
+        infoWindow3.open(map, marker3);
+      });
+    }
+  </script>
 </head>
 
 <body>
@@ -29,56 +79,5 @@
     <p>&copy; 2024 SASAKI, Yu. <a href="#">Privacy Policy</a></p>
   </footer>
 </body>
-
-<script>
-// Initialize and add the map
-function initMap() {
-    const mapOptions = {
-        center: { lat: 35.6895, lng: 139.6917 }, // Tokyo coordinates
-        zoom: 10
-    };
-    const map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-    // Adding markers
-    const marker1 = new google.maps.Marker({
-        position: { lat: 35.6895, lng: 139.6917 },
-        map: map,
-        title: "Tokyo"
-    });
-
-    const marker2 = new google.maps.Marker({
-        position: { lat: 35.6762, lng: 139.6503 },
-        map: map,
-        title: "Shinjuku"
-    });
-
-    const marker3 = new google.maps.Marker({
-        position: { lat: 35.6586, lng: 139.7454 },
-        map: map,
-        title: "Tokyo Tower"
-    });
-
-    // Adding info windows
-    const infoWindow1 = new google.maps.InfoWindow({
-        content: "Welcome to Tokyo!"
-    });
-    const infoWindow2 = new google.maps.InfoWindow({
-        content: "Welcome to Shinjuku!"
-    });
-    const infoWindow3 = new google.maps.InfoWindow({
-        content: "Welcome to Tokyo Tower!"
-    });
-
-    marker1.addListener("click", () => {
-        infoWindow1.open(map, marker1);
-    });
-    marker2.addListener("click", () => {
-        infoWindow2.open(map, marker2);
-    });
-    marker3.addListener("click", () => {
-        infoWindow3.open(map, marker3);
-    });
-}
-</script>
 
 </html>
