@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Homepage</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="map.html">Google Maps</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Home Page</h1>
+    <h2>My Personal Corner</h2>
+
+    <div class="intro">
+      <p>Hello! I am SASAKI, Yu. I am studying in the online bachelor's program at the Illinois Institute of Technology. This page showcases my resume and more.</p>
+    </div>
+
+    <div class="slider">
+      <img class="active" src="profile.jpg" alt="Profile Photo">
+      <img src="cat.jpg" alt="My Cat">
+      <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+      <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+  </main>
+
+  <footer class="disclaimer">
+    <p>&copy; 2024 SASAKI, Yu. <a href="#">Privacy Policy</a></p>
+  </footer>
+
+  <script>
+    let currentSlide = 0;
+    const images = document.querySelectorAll('.slider img');
+
+    function changeSlide(direction) {
+      images[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + direction + images.length) % images.length;
+      images[currentSlide].classList.add('active');
+    }
+
+    // Automatically change slide every 5 seconds
+    setInterval(() => changeSlide(1), 5000);
+  </script>
+</body>
+
+</html>
